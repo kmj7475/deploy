@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class JasyptConfig {
 
-	//@Value("${jasypt.encryptor.password}")
+	@Value("${jasypt.encryptor.password}")
     private String password;
 
-    //@Bean("jasyptStringEncryptor")
+    @Bean("jasyptStringEncryptor")
     public StringEncryptor stringEncryptor() {
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
