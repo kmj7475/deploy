@@ -13,7 +13,7 @@ public class JasyptTest {
         String[] plaintTextList = {"jdbc:oracle:thin:@localhost:1521/xe","hr","hr"};
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
-        config.setPassword("I hope you have a great day.");
+        config.setPassword("Ihopeyouhaveagreatday.");
         config.setAlgorithm("PBEWithMD5AndDES");
         config.setKeyObtentionIterations("1000");
         config.setPoolSize("1");
