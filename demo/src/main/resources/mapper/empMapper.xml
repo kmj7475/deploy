@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.app.emp.mapper.EmpMapper">
+	<select id="selectAllEmpList" resultType="EmpVO">
+		SELECT *
+		FROM employees
+	</select>
+	
+	<select id="selectEmpInfo" parameterType="Integer" resultType="EmpVO">
+		SELECT *
+		FROM employees
+		WHERE employee_id = #{empId}
+	</select>
+	
+	<insert id="insertEmpInfo" parameterType="EmpVO">
+		<selectKey keyProperty="employeeId" resultType="int" order="BEFORE">
+			SELECT MAX(employee_id)+1
+			FROM employees
+		</selectKey>
+		INSERT INTO 
+			employees(
+			employee_id,
+			last_name,
+			email,
+			hire_date,
+			job_id)
+		VALUES(
+			#{employeeId},
+			#{lastName},
+			#{email},
+			#{hireDate},
+			#{jobId})							
+	</insert>
+</mapper>
